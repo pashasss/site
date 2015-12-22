@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balter</title>
+    <link rel="stylesheet" type="text/css" href="../Balter/css/style.css" />
+    <link rel="stylesheet" href="../Balter/css/aero.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../Balter/css/jquery.selectbox.css" />
+    <script type="text/javascript" src="../Balter/js/jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" src="../Balter/js/jQuery Easing.js" ></script>
+    <script type="text/javascript" src="../Balter/js/jquery.selectbox-0.2.min.js"></script>
+    <script type="text/javascript" src="../Balter/js/icheck.min.js"></script>
+    <script type="text/javascript" src="../Balter/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="../Balter/js/jquery.switcher.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			  $( ".marg .slider-range-min" ).each(function(idx, elm) {
+				  var name = elm.id.replace('Slider', '');
+				  $('#' + elm.id).slider({
+				range: "min",
+				value: 33,
+				min: 1,
+				max: 100,
+				slide: function( event, ui ) {
+				  $( ".marg .amount" ).val(ui.value );
+				}
+				  });
+			  });
+			  $( ".marg .amount" ).val($( ".slider-range-min" ).slider( "value" ) );
+			   $( ".marg_t .slider-range-min" ).slider({
+				range: "min",
+				value: 3,
+				min: 1,
+				max: 6,
+				slide: function( event, ui ) {
+				  $( ".marg_t .amount" ).val(ui.value );
+				}
+			  });
+			  $( ".amount" ).val($( ".marg_t .slider-range-min" ).slider( "value" ) );
+			  $("select").selectbox({});
+			  $('.search_search').click(function(){
+					$(this).find('span').hide();	  
+					$(this).find('input').focus();
+			  });
+			  $('.search_search input').blur(function(){
+				    if ($(this).val() == ''){
+						$(this).parent().find('span').show();
+					}
+			  });
+  			  $('.day_night').iCheck({
+					checkboxClass: 'icheckbox_minimal-aero',
+					radioClass: 'iradio_minimal-aero'
+			  });
+			 /* var headerHeight = $('.header').height();
+			  	  poHeight = $('.presets_options').height();
+				  leftmenu = $('.left_menu').width();
+			  $('.v_b_height').height($(window).height() - headerHeight - poHeight);
+			  /*$('.v_b_height').width($(window).width() - leftmenu);*/
+             /* $(window).resize(function() {
+                  $('.img_height').height($(window).height() - headerHeight - poHeight);
+				  /*$('.v_b_height').width($(window).width() - leftmenu);*/
+              /*});
+              $(window).trigger('resize');*/
+
+		});
+    </script>
+	<script type="text/javascript">
+      $(function() {
+        $(".js__switcher, .js__another_switcher").switcher();
+      });
+    </script>   
+    
+</head>
+
+<body>
+	<div class="page">
+    	<div class="header">
+        	<div class="nav">
+            	<div class="nav_home"><a href="" class="home">HOME</a></div>
+                <ul class="nav_right">
+                    <li class="live"><a href="">Live</a></li>
+                    <li class="playback"><a href="">Playback</a></li>
+                    <li class="setup"><a href="" class="active">Setup</a></li>
+                    <li class="logout"><a href="">Logout</a></li>
+                    <li class="logo"><a href="" class="logo_a"></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        	<tr>
+            	<td class="left_menu">
+                    <ul class="menu_left">
+                        <li><a href="" class="video_l active">Video</a></li>
+                        <li><a href="" class="streams_l">Streams</a></li>
+                        <li><a href="" class="mot_detect_l">Motion Detection</a></li>
+                        <li><a href="" class="priv_zon_l">Privacy Zones</a></li>
+                        <li><a href="" class="events_l">Events</a></li>
+                        <li><a href="" class="network_l">Network</a></li>
+                        <li><a href="" class="dat_time_l">Date &amp; Time</a></li>
+                        <li><a href="" class="users_l">Users</a></li>
+                        <li><a href="" class="system_l">System</a></li>
+                        <li><a href="" class="card_l">SD Card</a></li>
+                    </ul>
+                </td>
+                <td class="content">
+                <div class="video_box v_b_height">
+                    <img alt="" src="../Balter/img/img_video_box.png" />
+                </div>
+                <div class="presets_options">
+                	<form>
+                        <div class="advanced_options">
+                        	<fieldset class="pre_sets">
+                                <legend>ADVANCED OPTIONS</legend>
+                                <div class="infotext">
+                                    <label class="t_i">Day / Night</label>
+                                    <ul class="day_night">
+                                        <li><input type="checkbox" id="Auto" checked /><label for="Auto">Auto</label></li>
+                                        <li><input type="checkbox" id="Color" /><label for="Color">Color</label></li>
+                                        <li><input type="checkbox" id="B&amp;W" /><label for="B&amp;W">B&amp;W</label></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="infotext">
+                                    <label class="t_i">White balance</label>
+                                    <ul class="day_night">
+                                        <li><input type="checkbox" id="Auto" checked /><label for="Auto">Auto</label></li>
+                                        <li><input type="checkbox" id="Wide" /><label for="Wide">Wide</label></li>
+                                        <li><input type="checkbox" id="?" /><label for="?">?</label></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="infotext">
+                                    <label class="t_i">Flicker control</label>
+                                    <ul class="day_night">
+                                        <li><input type="checkbox" id="60hz" checked /><label for="60hz">60hz</label></li>
+                                        <li><input type="checkbox" id="50hz" /><label for="50hz">50hz</label></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                                <label>Shutter</label>
+                                <div class="shutter">
+                                    <select>
+                                        <option value="1/2">1/2</option>
+                                        <option value="1/4">1/4</option>
+                                        <option value="1/8">1/8</option>
+                                    </select>
+                                </div>
+                                <label>sec max</label>
+                                <div class="form_row marg">
+                                    <label class="field_name">Brightness</label>
+                                    <div class="slider-range-min fl" id="s2Slider"></div>
+                                    <input type="text" class="amount" readonly value="33" />
+                                </div>
+                                
+                            </fieldset>
+                            <fieldset class="over_lay">
+                            	<legend>OVERLAY</legend>
+                                <label>Camera name</label>
+                                <div class="camer_nam"><input type="text" value="Name" /></div>
+                                <div class="clear"></div>
+                                <div class="text_pos">
+                                    <label>Text position</label>
+                                    <div class="pos_sel">
+                                        <select>
+                                            <option value="Top-Right">Top-Right</option>
+                                            <option value="Top-Left">Top-Left</option>
+                                            <option value="Bottom-Right">Bottom-Right</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="infotext">
+                                <label class="t_i">Text info</label>
+                                <ul class="dat_tim_det">
+                                	<li><input type="checkbox" id="Date" checked /><label for="Date">Date</label></li>
+                                    <li><input type="checkbox" id="Time" checked /><label for="Time">Time</label></li>
+                                    <li><input type="checkbox" id="Details" /><label for="Details">Details</label></li>
+                                </ul>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="options">
+                        	<fieldset>
+                            	<legend>IMAGE OPTIONS</legend>
+                                <div class="form_row marg">
+                                    <label class="field_name">Brightness</label>
+                                    <div class="slider-range-min fl" id="s2Slider"></div>
+                                    <input type="text" class="amount" readonly value="33" />
+                                </div>
+                                <div class="clear"></div>
+                                <div class="form_row marg">
+                                    <label class="field_name">Contrast</label>
+                                    <div class="slider-range-min fl" id="s3Slider"></div>
+                                    <input type="text" class="amount" readonly value="33" />
+                                </div>
+                                <div class="clear"></div>
+                                <div class="form_row marg">
+                                    <label class="field_name">Saturation</label>
+                                    <div class="slider-range-min fl" id="s4Slider"></div>
+                                    <input type="text" class="amount" readonly value="33" />
+                                </div>
+                                <div class="clear"></div>
+                                <div class="form_row marg">
+                                    <label class="field_name">Sharpness</label>
+                                    <div class="slider-range-min fl" id="s5Slider"></div>
+                                    <input type="text" class="amount" readonly value="33" />
+                                </div>
+                                <div class="clear"></div>
+                                <div class="blc">
+                                    <label>BLC</label>
+                                    <div class="switcher js__switcher fl">
+                                      <a href="#" class="s_checkbox js__s_checkbox js__s_left">
+                                        <span class="js__s_active"></span>
+                                        <span class="js__s_noactive"></span>
+                                      </a>
+                                    </div>
+                                    <label class="marg_l">Black light</label>
+                                    <div class="black_light">
+                                        <select>
+                                            <option value="Mid">Mid</option>
+                                            <option value="Top">Top</option>
+                                            <option value="Bottom">Bottom</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="leq">
+                                    <label>Light EQ</label>
+                                    <div class="switcher js__switcher fl">
+                                      <a href="#" class="s_checkbox js__s_checkbox js__s_right">
+                                        <span class="js__s_active"></span>
+                                        <span class="js__s_noactive"></span>
+                                      </a>
+                                    </div>
+                                </div>
+                                <div class="form_row marg_t fl">
+                                    <label class="field_name">Light EQ level</label>
+                                    <div class="slider-range-min fl" id="s1Slider"></div>
+                                    <input type="text" class="amount" readonly value="3" />
+                                    <span class="leql"></span>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+                <div class="clear"></div>
+                <div class="advanced"><a href="">Advanced</a></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
